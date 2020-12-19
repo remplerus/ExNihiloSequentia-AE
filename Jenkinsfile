@@ -9,7 +9,6 @@ pipeline {
             steps{
                 sh 'chmod +x gradlew'
                 sh 'chmod +x create-release.sh'
-                sh './gradlew --stop'
                 sh './gradlew clean'
             }
         }
