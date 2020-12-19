@@ -2,7 +2,6 @@ package novamachina.exnihiloae.common.datagen;
 
 import net.minecraft.block.Block;
 import net.minecraft.data.DataGenerator;
-import net.minecraft.data.IDataProvider;
 import net.minecraft.loot.ConstantRange;
 import net.minecraft.loot.ItemLootEntry;
 import net.minecraft.loot.LootParameterSets;
@@ -14,7 +13,6 @@ import net.minecraft.util.ResourceLocation;
 import novamachina.exnihiloae.common.init.ExNihiloAEBlocks;
 import novamachina.exnihiloae.common.utility.ExNihiloAEConstants;
 import novamachina.exnihilosequentia.common.datagen.LootTableGenerator;
-import novamachina.exnihilosequentia.common.init.ModBlocks;
 
 public class ExNihiloAELootTables extends LootTableGenerator {
     public ExNihiloAELootTables(DataGenerator generator) {

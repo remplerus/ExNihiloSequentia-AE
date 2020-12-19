@@ -1,5 +1,6 @@
 package novamachina.exnihiloae.common.init;
 
+import net.minecraft.block.AbstractBlock;
 import net.minecraft.block.Block;
 import net.minecraft.block.SoundType;
 import net.minecraft.block.material.Material;
@@ -20,7 +21,7 @@ public class ExNihiloAEBlocks {
         .create(ForgeRegistries.BLOCKS, ExNihiloAEConstants.ModIds.EX_NIHILO_AE);
     public static final RegistryObject<BaseFallingBlock> CRUSHED_SKYSTONE = BLOCKS
         .register(ExNihiloAEConstants.Blocks.CRUSHED_SKYSTONE, () -> new BaseFallingBlock(new BlockBuilder()
-            .properties(Block.Properties.create(Material.SAND).hardnessAndResistance(0.7F)
+            .properties(AbstractBlock.Properties.create(Material.SAND).hardnessAndResistance(0.7F)
                 .sound(SoundType.GROUND)).harvestLevel(ToolType.SHOVEL, 0)));
     private ExNihiloAEBlocks() {
     }
