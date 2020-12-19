@@ -1,0 +1,15 @@
+{
+  "type": "exnihilosequentia:sieve",
+  "rolls": [
+    {
+      "chance": 0.45,
+      "mesh": "flint"
+    }
+  ],
+  "input": {
+    "item": "exnihiloae:crushed_skystone"
+  },
+  "result": {
+    "item": "appliedenergistics2:nether_quartz_seed"
+  }
+}

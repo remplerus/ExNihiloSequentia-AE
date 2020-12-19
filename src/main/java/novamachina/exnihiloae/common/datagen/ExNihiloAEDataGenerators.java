@@ -6,9 +6,9 @@ import net.minecraftforge.fml.common.Mod;
 import net.minecraftforge.fml.event.lifecycle.GatherDataEvent;
 
 @Mod.EventBusSubscriber(bus = Mod.EventBusSubscriber.Bus.MOD)
-public class DataGenerators {
+public class ExNihiloAEDataGenerators {
 
-    private DataGenerators() {
+    private ExNihiloAEDataGenerators() {
     }
 
     @SubscribeEvent
@@ -17,13 +17,13 @@ public class DataGenerators {
 
         if (event.includeServer()) {
             // Recipes
-            generator.addProvider(new Recipes(generator));
+            generator.addProvider(new ExNihiloAERecipes(generator));
             // LootTable
-            generator.addProvider(new LootTables(generator));
+            generator.addProvider(new ExNihiloAELootTables(generator));
         }
         if (event.includeClient()) {
             // BlockStates
-            generator.addProvider(new BlockStates(generator, event.getExistingFileHelper()));
+            generator.addProvider(new ExNihiloAEBlockStates(generator, event.getExistingFileHelper()));
         }
     }
 }

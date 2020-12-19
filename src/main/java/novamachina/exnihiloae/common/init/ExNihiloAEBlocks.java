@@ -8,21 +8,21 @@ import net.minecraftforge.eventbus.api.IEventBus;
 import net.minecraftforge.fml.RegistryObject;
 import net.minecraftforge.registries.DeferredRegister;
 import net.minecraftforge.registries.ForgeRegistries;
-import novamachina.exnihiloae.common.utility.Constants;
+import novamachina.exnihiloae.common.utility.ExNihiloAEConstants;
 import novamachina.exnihilosequentia.common.block.BaseFallingBlock;
 import novamachina.exnihilosequentia.common.builder.BlockBuilder;
 import novamachina.exnihilosequentia.common.utility.ExNihiloLogger;
 import org.apache.logging.log4j.LogManager;
 
-public class ModBlocks {
+public class ExNihiloAEBlocks {
     private static final ExNihiloLogger logger = new ExNihiloLogger(LogManager.getLogger());
     private static final DeferredRegister<Block> BLOCKS = DeferredRegister
-        .create(ForgeRegistries.BLOCKS, Constants.ModIds.EX_NIHILO_AE);
+        .create(ForgeRegistries.BLOCKS, ExNihiloAEConstants.ModIds.EX_NIHILO_AE);
     public static final RegistryObject<BaseFallingBlock> CRUSHED_SKYSTONE = BLOCKS
-        .register(Constants.Blocks.CRUSHED_SKYSTONE, () -> new BaseFallingBlock(new BlockBuilder()
+        .register(ExNihiloAEConstants.Blocks.CRUSHED_SKYSTONE, () -> new BaseFallingBlock(new BlockBuilder()
             .properties(Block.Properties.create(Material.SAND).hardnessAndResistance(0.7F)
                 .sound(SoundType.GROUND)).harvestLevel(ToolType.SHOVEL, 0)));
-    private ModBlocks() {
+    private ExNihiloAEBlocks() {
     }
 
     public static void init(IEventBus modEventBus) {

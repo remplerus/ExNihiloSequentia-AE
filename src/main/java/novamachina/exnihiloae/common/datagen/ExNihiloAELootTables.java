@@ -11,17 +11,19 @@ import net.minecraft.loot.LootTable;
 import net.minecraft.loot.conditions.SurvivesExplosion;
 import net.minecraft.util.IItemProvider;
 import net.minecraft.util.ResourceLocation;
+import novamachina.exnihiloae.common.init.ExNihiloAEBlocks;
+import novamachina.exnihiloae.common.utility.ExNihiloAEConstants;
 import novamachina.exnihilosequentia.common.datagen.LootTableGenerator;
 import novamachina.exnihilosequentia.common.init.ModBlocks;
 
-public class LootTables extends LootTableGenerator {
-    public LootTables(DataGenerator generator) {
+public class ExNihiloAELootTables extends LootTableGenerator {
+    public ExNihiloAELootTables(DataGenerator generator) {
         super(generator);
     }
 
     @Override
     protected void createLootTables() {
-        registerSelfDrop(ModBlocks.CRUSHED_SKYSTONE.get());
+        registerSelfDrop(ExNihiloAEBlocks.CRUSHED_SKYSTONE.get());
     }
 
     private void registerSelfDrop(Block block) {
@@ -60,6 +62,6 @@ public class LootTables extends LootTableGenerator {
 
     @Override
     public String getName() {
-        return "Loot Tables - Ex Nihilo: Sequentia - AE Addon";
+        return "Loot Tables: " + ExNihiloAEConstants.ModIds.EX_NIHILO_AE;
     }
 }

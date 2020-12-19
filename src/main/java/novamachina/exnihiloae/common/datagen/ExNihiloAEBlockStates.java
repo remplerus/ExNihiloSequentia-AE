@@ -5,17 +5,17 @@ import net.minecraft.data.DataGenerator;
 import net.minecraftforge.client.model.generators.BlockStateProvider;
 import net.minecraftforge.client.model.generators.ModelFile;
 import net.minecraftforge.common.data.ExistingFileHelper;
-import novamachina.exnihiloae.common.init.ModBlocks;
-import novamachina.exnihiloae.common.utility.Constants;
+import novamachina.exnihiloae.common.init.ExNihiloAEBlocks;
+import novamachina.exnihiloae.common.utility.ExNihiloAEConstants;
 
-public class BlockStates extends BlockStateProvider {
-    public BlockStates(DataGenerator gen, ExistingFileHelper exFileHelper) {
-        super(gen, Constants.ModIds.EX_NIHILO_AE, exFileHelper);
+public class ExNihiloAEBlockStates extends BlockStateProvider {
+    public ExNihiloAEBlockStates(DataGenerator gen, ExistingFileHelper exFileHelper) {
+        super(gen, ExNihiloAEConstants.ModIds.EX_NIHILO_AE, exFileHelper);
     }
 
     @Override
     protected void registerStatesAndModels() {
-        basicBlock(ModBlocks.CRUSHED_SKYSTONE.get());
+        basicBlock(ExNihiloAEBlocks.CRUSHED_SKYSTONE.get());
     }
 
     private void basicBlock(Block block) {

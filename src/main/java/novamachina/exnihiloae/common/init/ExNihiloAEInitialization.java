@@ -4,15 +4,15 @@ import net.minecraftforge.eventbus.api.IEventBus;
 import novamachina.exnihilosequentia.common.utility.ExNihiloLogger;
 import org.apache.logging.log4j.LogManager;
 
-public class ModInitialization {
+public class ExNihiloAEInitialization {
     private static final ExNihiloLogger logger = new ExNihiloLogger(LogManager.getLogger());
 
-    private ModInitialization() {
+    private ExNihiloAEInitialization() {
     }
 
     public static void init(IEventBus modEventBus) {
         logger.debug("Initializing modded items");
-        ModBlocks.init(modEventBus);
-        ModItems.init(modEventBus);
+        ExNihiloAEBlocks.init(modEventBus);
+        ExNihiloAEItems.init(modEventBus);
     }
 }
