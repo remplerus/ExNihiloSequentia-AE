@@ -26,7 +26,8 @@ pipeline {
             }
             steps {
                 sh './create-release.sh'
-                sh './gradlew curseforge428204'
+                sh './gradlew curseforge'
+                sh './gradlew publish'
             }
         }
     }

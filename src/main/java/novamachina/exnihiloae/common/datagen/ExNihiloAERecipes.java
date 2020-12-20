@@ -3,24 +3,23 @@ package novamachina.exnihiloae.common.datagen;
 import appeng.core.Api;
 import net.minecraft.data.DataGenerator;
 import net.minecraft.data.IFinishedRecipe;
-import net.minecraft.data.RecipeProvider;
 import net.minecraft.fluid.Fluids;
 import net.minecraft.item.crafting.Ingredient;
-import net.minecraft.util.ResourceLocation;
 import novamachina.exnihiloae.common.init.ExNihiloAEBlocks;
 import novamachina.exnihiloae.common.utility.ExNihiloAEConstants;
 import novamachina.exnihilosequentia.api.crafting.fluiditem.FluidItemRecipeBuilder;
 import novamachina.exnihilosequentia.api.crafting.hammer.HammerRecipeBuilder;
 import novamachina.exnihilosequentia.api.crafting.sieve.MeshWithChance;
 import novamachina.exnihilosequentia.api.crafting.sieve.SieveRecipeBuilder;
-import novamachina.exnihilosequentia.common.init.ModBlocks;
+import novamachina.exnihilosequentia.api.datagen.AbstractRecipeGenerator;
+import novamachina.exnihilosequentia.common.init.ExNihiloBlocks;
 import novamachina.exnihilosequentia.common.item.mesh.EnumMesh;
 
 import java.util.function.Consumer;
 
-public class ExNihiloAERecipes extends RecipeProvider {
+public class ExNihiloAERecipes extends AbstractRecipeGenerator {
     public ExNihiloAERecipes(DataGenerator generator) {
-        super(generator);
+        super(generator, ExNihiloAEConstants.ModIds.EX_NIHILO_AE);
     }
 
     @Override
@@ -36,10 +35,6 @@ public class ExNihiloAERecipes extends RecipeProvider {
             .build(consumer, hammerLoc(ExNihiloAEConstants.Blocks.CRUSHED_SKYSTONE));
     }
 
-    private ResourceLocation hammerLoc(String id) {
-        return new ResourceLocation(ExNihiloAEConstants.ModIds.EX_NIHILO_AE, "hammer/" + id);
-    }
-
     private void registerFluidItemRecipes(Consumer<IFinishedRecipe> consumer) {
         FluidItemRecipeBuilder.builder().fluidInBarrel(Fluids.LAVA)
             .input(Api.instance().definitions().materials().skyDust())
@@ -47,19 +42,15 @@ public class ExNihiloAERecipes extends RecipeProvider {
             .build(consumer, fluidItemLoc("sky_stone"));
     }
 
-    private ResourceLocation fluidItemLoc(String id) {
-        return new ResourceLocation(ExNihiloAEConstants.ModIds.EX_NIHILO_AE, "fluid_item/" + id);
-    }
-
     private void registerSieveRecipes(Consumer<IFinishedRecipe> consumer) {
-        SieveRecipeBuilder.builder().input(Ingredient.fromItems(ModBlocks.DUST.get()))
+        SieveRecipeBuilder.builder().input(Ingredient.fromItems(ExNihiloBlocks.DUST.get()))
             .drop(Api.instance().definitions().materials().skyDust())
             .addRoll(new MeshWithChance(EnumMesh.FLINT, 0.1F))
             .addRoll(new MeshWithChance(EnumMesh.IRON, 0.2F))
             .addRoll(new MeshWithChance(EnumMesh.DIAMOND, 0.3F))
             .build(consumer, sieveLoc("sky_dust"));
 
-        SieveRecipeBuilder.builder().input(Ingredient.fromItems(ModBlocks.DUST.get()))
+        SieveRecipeBuilder.builder().input(Ingredient.fromItems(ExNihiloBlocks.DUST.get()))
             .drop(Api.instance().definitions().materials().certusQuartzDust())
             .addRoll(new MeshWithChance(EnumMesh.IRON, 0.15F))
             .build(consumer, sieveLoc("certus_dust"));
@@ -84,9 +75,5 @@ public class ExNihiloAERecipes extends RecipeProvider {
             .drop(Api.instance().definitions().items().netherQuartzSeed())
             .addRoll(new MeshWithChance(EnumMesh.FLINT, 0.45F))
             .build(consumer, sieveLoc("nether_quartz_seed"));
-    }
-
-    private ResourceLocation sieveLoc(String id) {
-        return new ResourceLocation(ExNihiloAEConstants.ModIds.EX_NIHILO_AE, "sieve/" + id);
     }
 }

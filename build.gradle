@@ -3,7 +3,6 @@ buildscript {
         jcenter()
         maven { url = 'https://files.minecraftforge.net/maven' }
         maven { url "https://plugins.gradle.org/m2/" }
-//        maven { url = 'https://repo.spongepowered.org/maven' }
         mavenCentral()
     }
     dependencies {
@@ -60,7 +59,7 @@ minecraft {
             property 'forge.logging.markers', 'SCAN,REGISTRIES,REGISTRYDUMP'
             property 'forge.logging.console.level', 'debug'
             properties 'mixin.env.disableRefMap': 'true'
-            args '--mod', 'exnihiloae', '--all', '--output', file('generated/resources/'), '--existing', file('src/main/resources')
+            args '--mod', 'exnihiloae', '--all', '--output', file('generated/resources/'), '--existing', file('src/main/resources'), '--existing-mod', 'exnihilosequentia'
 
             mods {
                 exnihiloae {
@@ -76,8 +75,8 @@ sourceSets.main.resources { srcDir 'src/main/resources' }
 dependencies {
     minecraft "net.minecraftforge:forge:${minecraft_version}-${forge_version}"
 
-    implementation fg.deobf('novamachina:exnihilosequentia:1.16-1.3.2.0')
-    implementation fg.deobf('appeng:appliedenergistics2:8.1.0')
+    implementation fg.deobf("novamachina:exnihilosequentia:${minecraft_release}-${exnihilosequentia_version}")
+    implementation fg.deobf("appeng:appliedenergistics2:${appliedenergistics_version}")
 
     runtimeOnly fg.deobf("mezz.jei:jei-${minecraft_release}.2:${jei_version}")
     runtimeOnly fg.deobf("mcp.mobius.waila:Hwyla:${hwyla_version}_${minecraft_release}.2")
@@ -129,12 +128,19 @@ repositories {
 publishing {
     publications {
         mavenJava(MavenPublication) {
+            groupId = "${artifact_group}"
+            artifactId = "${artifact_basename}"
+            version = "${version}"
             artifact jar
         }
     }
     repositories {
         maven {
-            url "file:///${project.projectDir}/mcmodsrepo"
+            credentials {
+                username = ENV.NEXUS_USERNAME
+                password = ENV.NEXUS_PASSWORD
+            }
+            url = "https://repo.jacob-williams.me/repository/maven-releases/"
         }
     }
 }
@@ -144,7 +150,7 @@ if(ENV.CURSEFORGE_KEY) {
         apiKey = ENV.CURSEFORGE_KEY
 
         project {
-            id = '428204'
+            id = "${curseforge_project}"
             releaseType = 'release'
             mainArtifact jar
             addGameVersion '1.16'

@@ -7,7 +7,7 @@ import net.minecraftforge.fml.RegistryObject;
 import net.minecraftforge.registries.DeferredRegister;
 import net.minecraftforge.registries.ForgeRegistries;
 import novamachina.exnihiloae.common.utility.ExNihiloAEConstants;
-import novamachina.exnihilosequentia.common.init.ModInitialization;
+import novamachina.exnihilosequentia.common.init.ExNihiloInitialization;
 import novamachina.exnihilosequentia.common.utility.ExNihiloLogger;
 import org.apache.logging.log4j.LogManager;
 
@@ -18,7 +18,7 @@ public class ExNihiloAEItems {
     public static final RegistryObject<Item> CRUSHED_SKYSTONE = ITEMS
         .register(ExNihiloAEConstants.Blocks.CRUSHED_SKYSTONE,
             () -> new BlockItem(ExNihiloAEBlocks.CRUSHED_SKYSTONE.get(),
-                new Item.Properties().group(ModInitialization.ITEM_GROUP)));
+                new Item.Properties().group(ExNihiloInitialization.ITEM_GROUP)));
     private ExNihiloAEItems() {
     }
 
