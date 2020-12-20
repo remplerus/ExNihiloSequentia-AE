@@ -75,5 +75,17 @@ public class ExNihiloAERecipes extends AbstractRecipeGenerator {
             .drop(Api.instance().definitions().items().netherQuartzSeed())
             .addRoll(new MeshWithChance(EnumMesh.FLINT, 0.45F))
             .build(consumer, sieveLoc("nether_quartz_seed"));
+
+        SieveRecipeBuilder.builder().input(Ingredient.fromItems(ExNihiloBlocks.DUST.get()))
+            .drop(Api.instance().definitions().materials().fluixDust())
+            .addRoll(new MeshWithChance(EnumMesh.DIAMOND, 0.03F))
+            .addRoll(new MeshWithChance(EnumMesh.EMERALD, 0.06F))
+            .build(consumer, sieveLoc("fluix_dust"));
+
+        SieveRecipeBuilder.builder().input(Ingredient.fromItems(ExNihiloBlocks.DUST.get()))
+            .drop(Api.instance().definitions().materials().netherQuartzDust())
+            .addRoll(new MeshWithChance(EnumMesh.DIAMOND, 0.05F))
+            .addRoll(new MeshWithChance(EnumMesh.EMERALD, 0.1F))
+            .build(consumer, sieveLoc("nether_quartz_dust"));
     }
 }
