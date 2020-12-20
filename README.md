@@ -7,7 +7,7 @@
 </p>
 
 # Ex Nihilo: Sequentia - AE2 Addon
-An addon for Ex Nihilo: Sequenita that adds support for Applied Energistics 2.
+An addon for Ex Nihilo: Sequenita that adds support for Applied Energistics 2. Adds necessary blocks, items and recipes for compatibility. 
 
 # License
 Ex Nihilo: Sequentia is licensed under the MIT license (see the license file)
