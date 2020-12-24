@@ -1,3 +1,2 @@
-1.0.0.0
-- Add Crushed Sky Stone
-- Add recipes for AE2
+1.0.0.1
+- Require version 2 of Ex Nihilo
