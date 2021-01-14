@@ -31,7 +31,7 @@ public class ExNihiloAERecipes extends AbstractRecipeGenerator {
 
     private void registerHammerRecipes(Consumer<IFinishedRecipe> consumer) {
         HammerRecipeBuilder.builder().input(Api.instance().definitions().blocks().skyStoneBlock().block())
-            .result(ExNihiloAEBlocks.CRUSHED_SKYSTONE.get())
+            .addDrop(ExNihiloAEBlocks.CRUSHED_SKYSTONE.get())
             .build(consumer, hammerLoc(ExNihiloAEConstants.Blocks.CRUSHED_SKYSTONE));
     }
 
