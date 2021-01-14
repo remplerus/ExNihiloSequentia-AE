@@ -1,9 +1,9 @@
 <p align="center">
     <a href="https://www.curseforge.com/minecraft/mc-mods/ex-nihilo-sequentia-ae2-addon"><img src="http://cf.way2muchnoise.eu/full_428204_downloads.svg" /></a>
     <a href="https://www.curseforge.com/minecraft/mc-mods/ex-nihilo-sequentia-ae2-addon"><img src="http://cf.way2muchnoise.eu/versions/428204.svg" /></a>
-    <a href="https://github.com/NovaMachina/ExNihiloSequentia/blob/master/LICENSE.md"><img alt="GitHub license" src="https://img.shields.io/github/license/NovaMachina/ExNihiloSequentia"></a>
-    <a href="https://github.com/NovaMachina/ExNihiloSequentia/issues"><img alt="GitHub issues" src="https://img.shields.io/github/issues/NovaMachina/ExNihiloSequentia"></a>
-    <a href="https://github.com/NovaMachina/ExNihiloSequentia/stargazers"><img alt="GitHub stars" src="https://img.shields.io/github/stars/NovaMachina/ExNihiloSequentia"></a>
+    <a href="https://github.com/NovaMachina-Mods/ExNihiloSequentia-AE/blob/master/LICENSE.md"><img alt="GitHub license" src="https://img.shields.io/github/license/NovaMachina-Mods/ExNihiloSequentia-AE"></a>
+    <a href="https://github.com/NovaMachina-Mods/ExNihiloSequentia-AE/issues"><img alt="GitHub issues" src="https://img.shields.io/github/issues/NovaMachina-Mods/ExNihiloSequentia-AE"></a>
+    <a href="https://github.com/NovaMachina-Mods/ExNihiloSequentia-AE/stargazers"><img alt="GitHub stars" src="https://img.shields.io/github/stars/NovaMachina-Mods/ExNihiloSequentia-AE"></a>
 </p>
 
 # Ex Nihilo: Sequentia - AE2 Addon
