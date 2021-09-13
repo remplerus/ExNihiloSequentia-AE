@@ -23,7 +23,7 @@ public class ExNihiloAERecipes extends AbstractRecipeGenerator {
     }
 
     @Override
-    protected void registerRecipes(Consumer<IFinishedRecipe> consumer) {
+    protected void buildShapelessRecipes(Consumer<IFinishedRecipe> consumer) {
         registerSieveRecipes(consumer);
         registerFluidItemRecipes(consumer);
         registerHammerRecipes(consumer);
@@ -43,46 +43,46 @@ public class ExNihiloAERecipes extends AbstractRecipeGenerator {
     }
 
     private void registerSieveRecipes(Consumer<IFinishedRecipe> consumer) {
-        SieveRecipeBuilder.builder().input(Ingredient.fromItems(ExNihiloBlocks.DUST.get()))
+        SieveRecipeBuilder.builder().input(Ingredient.of(ExNihiloBlocks.DUST.get()))
             .drop(Api.instance().definitions().materials().skyDust())
             .addRoll(new MeshWithChance(EnumMesh.FLINT, 0.1F))
             .addRoll(new MeshWithChance(EnumMesh.IRON, 0.2F))
             .addRoll(new MeshWithChance(EnumMesh.DIAMOND, 0.3F))
             .build(consumer, sieveLoc("sky_dust"));
 
-        SieveRecipeBuilder.builder().input(Ingredient.fromItems(ExNihiloBlocks.DUST.get()))
+        SieveRecipeBuilder.builder().input(Ingredient.of(ExNihiloBlocks.DUST.get()))
             .drop(Api.instance().definitions().materials().certusQuartzDust())
             .addRoll(new MeshWithChance(EnumMesh.IRON, 0.15F))
             .build(consumer, sieveLoc("certus_dust"));
 
-        SieveRecipeBuilder.builder().input(Ingredient.fromItems(ExNihiloAEBlocks.CRUSHED_SKYSTONE.get()))
+        SieveRecipeBuilder.builder().input(Ingredient.of(ExNihiloAEBlocks.CRUSHED_SKYSTONE.get()))
             .drop(Api.instance().definitions().materials().certusQuartzCrystal())
             .addRoll(new MeshWithChance(EnumMesh.IRON, 0.7F))
             .addRoll(new MeshWithChance(EnumMesh.DIAMOND, 0.8F))
             .build(consumer, sieveLoc("certus_quartz"));
 
-        SieveRecipeBuilder.builder().input(Ingredient.fromItems(ExNihiloAEBlocks.CRUSHED_SKYSTONE.get()))
+        SieveRecipeBuilder.builder().input(Ingredient.of(ExNihiloAEBlocks.CRUSHED_SKYSTONE.get()))
             .drop(Api.instance().definitions().materials().certusQuartzCrystalCharged())
             .addRoll(new MeshWithChance(EnumMesh.DIAMOND, 0.1F))
             .build(consumer, sieveLoc("charged_certus_quartz"));
 
-        SieveRecipeBuilder.builder().input(Ingredient.fromItems(ExNihiloAEBlocks.CRUSHED_SKYSTONE.get()))
+        SieveRecipeBuilder.builder().input(Ingredient.of(ExNihiloAEBlocks.CRUSHED_SKYSTONE.get()))
             .drop(Api.instance().definitions().items().certusCrystalSeed())
             .addRoll(new MeshWithChance(EnumMesh.STRING, 0.35F))
             .build(consumer, sieveLoc("certus_seed"));
 
-        SieveRecipeBuilder.builder().input(Ingredient.fromItems(ExNihiloAEBlocks.CRUSHED_SKYSTONE.get()))
+        SieveRecipeBuilder.builder().input(Ingredient.of(ExNihiloAEBlocks.CRUSHED_SKYSTONE.get()))
             .drop(Api.instance().definitions().items().netherQuartzSeed())
             .addRoll(new MeshWithChance(EnumMesh.FLINT, 0.45F))
             .build(consumer, sieveLoc("nether_quartz_seed"));
 
-        SieveRecipeBuilder.builder().input(Ingredient.fromItems(ExNihiloBlocks.DUST.get()))
+        SieveRecipeBuilder.builder().input(Ingredient.of(ExNihiloBlocks.DUST.get()))
             .drop(Api.instance().definitions().materials().fluixDust())
             .addRoll(new MeshWithChance(EnumMesh.DIAMOND, 0.03F))
             .addRoll(new MeshWithChance(EnumMesh.EMERALD, 0.06F))
             .build(consumer, sieveLoc("fluix_dust"));
 
-        SieveRecipeBuilder.builder().input(Ingredient.fromItems(ExNihiloBlocks.DUST.get()))
+        SieveRecipeBuilder.builder().input(Ingredient.of(ExNihiloBlocks.DUST.get()))
             .drop(Api.instance().definitions().materials().netherQuartzDust())
             .addRoll(new MeshWithChance(EnumMesh.DIAMOND, 0.05F))
             .addRoll(new MeshWithChance(EnumMesh.EMERALD, 0.1F))

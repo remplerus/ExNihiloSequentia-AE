@@ -21,8 +21,8 @@ public class ExNihiloAEBlocks {
         .create(ForgeRegistries.BLOCKS, ExNihiloAEConstants.ModIds.EX_NIHILO_AE);
     public static final RegistryObject<BaseFallingBlock> CRUSHED_SKYSTONE = BLOCKS
         .register(ExNihiloAEConstants.Blocks.CRUSHED_SKYSTONE, () -> new BaseFallingBlock(new BlockBuilder()
-            .properties(AbstractBlock.Properties.create(Material.SAND).hardnessAndResistance(0.7F)
-                .sound(SoundType.GROUND)).harvestLevel(ToolType.SHOVEL, 0)));
+            .properties(AbstractBlock.Properties.of(Material.SAND).strength(0.7F)
+                .sound(SoundType.GRAVEL)).harvestLevel(ToolType.SHOVEL, 0)));
     private ExNihiloAEBlocks() {
     }
 

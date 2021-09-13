@@ -6,7 +6,7 @@ buildscript {
         mavenCentral()
     }
     dependencies {
-        classpath group: 'net.minecraftforge.gradle', name: 'ForgeGradle', version: '3.0.187', changing: true
+        classpath group: 'net.minecraftforge.gradle', name: 'ForgeGradle', version: '5.1.+', changing: true
         classpath 'gradle.plugin.com.matthewprenger:CurseGradle:1.1.0'
     }
 }
@@ -21,11 +21,11 @@ version = "${minecraft_release}-${version_major}.${version_api_major}.${version_
 archivesBaseName = "${artifact_basename}"
 group = "${artifact_group}.${artifact_basename}"
 
-sourceCompatibility = targetCompatibility = compileJava.sourceCompatibility = compileJava.targetCompatibility = '1.8'
+java.toolchain.languageVersion = JavaLanguageVersion.of(8)
 
 println('Java: ' + System.getProperty('java.version') + ' JVM: ' + System.getProperty('java.vm.version') + '(' + System.getProperty('java.vendor') + ') Arch: ' + System.getProperty('os.arch'))
 minecraft {
-    mappings channel: 'snapshot', version: "${mcp_mappings}"
+    mappings channel: 'official', version: "${minecraft_version}"
     // makeObfSourceJar = false // an Srg named sources jar is made by default. uncomment this to disable.
     // accessTransformer = file('src/main/resources/META-INF/accesstransformer.cfg')
     runs {
@@ -33,7 +33,9 @@ minecraft {
             workingDirectory project.file('run')
             property 'forge.logging.markers', 'SCAN,REGISTRIES,REGISTRYDUMP'
             property 'forge.logging.console.level', 'debug'
-            properties 'mixin.env.disableRefMap': 'true'
+            // allow mixins from AE2
+            property 'mixin.env.remapRefMap', 'true'
+            property 'mixin.env.refMapRemappingFile', "${projectDir}/build/createSrgToMcp/output.srg".toString()
 
             mods {
                 exnihiloae {
@@ -46,6 +48,9 @@ minecraft {
             workingDirectory project.file('run')
             property 'forge.logging.markers', 'SCAN,REGISTRIES,REGISTRYDUMP'
             property 'forge.logging.console.level', 'debug'
+            // allow mixins from AE2
+            property 'mixin.env.remapRefMap', 'true'
+            property 'mixin.env.refMapRemappingFile', "${projectDir}/build/createSrgToMcp/output.srg".toString()
 
             mods {
                 exnihiloae {
@@ -58,7 +63,9 @@ minecraft {
             workingDirectory project.file('run')
             property 'forge.logging.markers', 'SCAN,REGISTRIES,REGISTRYDUMP'
             property 'forge.logging.console.level', 'debug'
-            properties 'mixin.env.disableRefMap': 'true'
+            // allow mixins from AE2
+            property 'mixin.env.remapRefMap', 'true'
+            property 'mixin.env.refMapRemappingFile', "${projectDir}/build/createSrgToMcp/output.srg".toString()
             args '--mod', 'exnihiloae', '--all', '--output', file('generated/resources/'), '--existing', file('src/main/resources'), '--existing-mod', 'exnihilosequentia'
 
             mods {
@@ -70,15 +77,20 @@ minecraft {
     }
 }
 
+processResources {
+    duplicatesStrategy(DuplicatesStrategy.INCLUDE)
+}
+
 sourceSets.main.resources { srcDir 'src/main/resources' }
 
 dependencies {
     minecraft "net.minecraftforge:forge:${minecraft_version}-${forge_version}"
 
-    implementation fg.deobf("novamachina:exnihilosequentia:${minecraft_release}-${exnihilosequentia_version}")
+    //implementation fg.deobf("novamachina:exnihilosequentia:${minecraft_release}-${exnihilosequentia_version}")
+    implementation fg.deobf("curse.maven:exnihilosequentia-400012:3439328")
     implementation fg.deobf("appeng:appliedenergistics2:${appliedenergistics_version}")
 
-    runtimeOnly fg.deobf("mezz.jei:jei-${minecraft_release}.2:${jei_version}")
+    runtimeOnly fg.deobf("mezz.jei:jei-${minecraft_version}:${jei_version}")
     runtimeOnly fg.deobf("mcp.mobius.waila:Hwyla:${hwyla_version}_${minecraft_release}.2")
 }
 
@@ -123,6 +135,9 @@ repositories {
     maven {
         url = "https://repo.jacob-williams.me/repository/maven-releases/"
     }
+    maven {
+        url = "https://cursemaven.com"
+    }
 }
 
 publishing {
@@ -158,6 +173,7 @@ if(ENV.CURSEFORGE_KEY) {
             addGameVersion '1.16.2'
             addGameVersion '1.16.3'
             addGameVersion '1.16.4'
+            addGameVersion '1.16.5'
             changelog = file('changelog.md')
             changelogType = 'markdown'
         }
